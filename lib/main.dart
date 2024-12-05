@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gui_zapret/presentation/pages/home.dart';
 import 'package:gui_zapret/presentation/pages/splash_screen.dart';
 import 'package:window_manager/window_manager.dart';
 import 'domain/services/global_navigator.dart';
@@ -18,6 +17,7 @@ void main() async {
   );
 
   windowManager.waitUntilReadyToShow(windowOptions, () async {
+    await windowManager.setIcon('assets/freescord_circle_logo.ico');
     await windowManager.setPreventClose(true);
     await windowManager.show();
     await windowManager.focus();

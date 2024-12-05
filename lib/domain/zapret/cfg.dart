@@ -1,4 +1,4 @@
-const String zapretPath = 'lib/core/zapret';
+const String zapretPath = 'lib/domain/zapret';
 
 const String binPath = '$zapretPath/bin';
 

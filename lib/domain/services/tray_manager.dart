@@ -17,7 +17,7 @@ class TrayManager {
 
     await _systemTray.initSystemTray(
       title: "Flutter Tray App",
-      iconPath: 'assets/icon.ico', // Укажите путь к иконке
+      iconPath: 'assets/freescord_circle_logo.ico', // Укажите путь к иконке
     );
 
     final Menu menu = Menu();
