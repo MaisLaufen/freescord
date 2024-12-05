@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:gui_zapret/domain/services/process_manager.dart';
 import 'package:system_tray/system_tray.dart';
 import 'package:window_manager/window_manager.dart';
 
 class TrayManager {
   final SystemTray _systemTray = SystemTray();
-  bool isProcessRunning = false;
+  final AppWindow _appWindow = AppWindow();
 
   static final TrayManager _instance = TrayManager._internal();
 
@@ -13,34 +14,20 @@ class TrayManager {
   factory TrayManager() => _instance;
 
   Future<void> initSystemTray() async {
-    final AppWindow appWindow = AppWindow();
-
     await _systemTray.initSystemTray(
-      title: "Flutter Tray App",
-      iconPath: 'assets/freescord_circle_logo.ico', // Укажите путь к иконке
+      title: "Freescord",
+      iconPath: 'assets/icons/freescord_logo_circle.ico',
     );
 
-    final Menu menu = Menu();
-    await menu.buildFrom([
-      MenuItemLabel(
-          label: 'Открыть', onClicked: (menuItem) => windowManager.show()),
-      MenuItemLabel(
-        label: isProcessRunning ? 'Остановить процесс' : 'Запустить процесс',
-        onClicked: (menuItem) {
-          isProcessRunning = !isProcessRunning;
-        },
-      ),
-      MenuItemLabel(
-          label: 'Выход',
-          onClicked: (menuItem) async {
-            await windowManager.destroy();
-          }),
-    ]);
+    _updateTrayMenu();
 
-    await _systemTray.setContextMenu(menu);
+    ProcessManager().isRunningNotifier.addListener(() {
+      _updateTrayMenu();
+    });
+
     _systemTray.registerSystemTrayEventHandler((eventName) {
       if (eventName == kSystemTrayEventClick) {
-        appWindow.show();
+        _appWindow.show();
       } else if (eventName == kSystemTrayEventRightClick) {
         _systemTray.popUpContextMenu();
       }
@@ -73,5 +60,32 @@ class TrayManager {
         ),
       );
     }
+  }
+
+  void _updateTrayMenu() async {
+    final Menu menu = Menu();
+    await menu.buildFrom([
+      MenuItemLabel(
+          label: 'Открыть', onClicked: (menuItem) => _appWindow.show()),
+      MenuItemLabel(
+        label: ProcessManager().isRunning
+            ? 'Остановить процесс'
+            : 'Запустить процесс',
+        onClicked: (menuItem) {
+          if (ProcessManager().isRunning) {
+            ProcessManager().killProcess();
+          } else {
+            ProcessManager().startProcess();
+          }
+        },
+      ),
+      MenuItemLabel(
+          label: 'Выход',
+          onClicked: (menuItem) async {
+            await _appWindow.close();
+          }),
+    ]);
+
+    await _systemTray.setContextMenu(menu);
   }
 }
