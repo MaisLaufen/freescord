@@ -7,6 +7,11 @@ class ProcessManager {
   final ValueNotifier<bool> isRunningNotifier = ValueNotifier(false);
   String path = winwsPath;
 
+  // Синглтон
+  static final ProcessManager _instance = ProcessManager._internal();
+  ProcessManager._internal();
+  factory ProcessManager() => _instance;
+
   Future<void> startProcess(
       {List<String> arguments = defaultDiscordCommand}) async {
     _process = await Process.start(path, arguments);

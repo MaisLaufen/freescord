@@ -12,7 +12,9 @@ class LogManager {
   LogManager._internal();
 
   // Список логов
-  List<LogEntry> _logs = [];
+
+  // Shouldn't be final.
+  final List<LogEntry> _logs = [];
 
   // Метод для добавления логов
   void addLog(String message, LogType type) {
