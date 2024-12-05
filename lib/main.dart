@@ -17,7 +17,7 @@ void main() async {
   );
 
   windowManager.waitUntilReadyToShow(windowOptions, () async {
-    await windowManager.setIcon('assets/freescord_circle_logo.ico');
+    await windowManager.setIcon('assets/icons/freescord_logo_circle.ico');
     await windowManager.setPreventClose(true);
     await windowManager.show();
     await windowManager.focus();

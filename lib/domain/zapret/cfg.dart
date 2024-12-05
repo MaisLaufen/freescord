@@ -4,7 +4,9 @@ const String binPath = '$zapretPath/bin';
 
 const String winwsPath = '$binPath/winws.exe';
 
-const String version = '1.0.0';
+const String freescordVersion = '1.0.0';
+
+const String zapretVersion = '1.6.1';
 
 const List<String> defaultDiscordCommand = [
   '--wf-tcp=443',
