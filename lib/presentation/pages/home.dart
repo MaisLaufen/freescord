@@ -1,13 +1,10 @@
+import 'package:Freescord/domain/services/logger/log_entry.dart';
+import 'package:Freescord/domain/services/logger/log_manager.dart';
+import 'package:Freescord/domain/services/process_manager.dart';
+import 'package:Freescord/presentation/widgets/log_output.dart';
 import 'package:flutter/material.dart';
-import 'package:gui_zapret/domain/services/logger/log_entry.dart';
-import 'package:gui_zapret/domain/services/logger/log_manager.dart';
-import 'package:gui_zapret/domain/services/process_manager.dart';
-import 'package:gui_zapret/presentation/pages/about.dart';
-import 'package:gui_zapret/presentation/pages/settings.dart';
-import 'package:gui_zapret/presentation/widgets/log_output.dart';
 
 // Цвета:
-
 String primary = '#006FEE';
 String success = '#17c964';
 String warning = '#f5a524';
@@ -63,26 +60,6 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Главная страница',
             style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.black,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.info, color: Colors.white),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => AboutPage()),
-              );
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.settings, color: Colors.white),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => SettingsPage()),
-              );
-            },
-          ),
-        ],
       ),
       backgroundColor: Colors.black,
       body: Padding(
@@ -107,9 +84,9 @@ class _HomePageState extends State<HomePage> {
                           _stopProcess();
                         }
                       },
-                      activeColor: Colors.white,
-                      activeTrackColor: Colors.green,
-                      inactiveTrackColor: Colors.grey,
+                      activeColor: Color(0xff393939),
+                      activeTrackColor: Color(0xffffffff),
+                      inactiveTrackColor: Color(0xff333333),
                       inactiveThumbColor: Colors.white,
                     );
                   },
