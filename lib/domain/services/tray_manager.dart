@@ -1,5 +1,6 @@
+import 'package:Freescord/domain/services/process_manager.dart';
+import 'package:Freescord/presentation/dialogs/exit_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:gui_zapret/domain/services/process_manager.dart';
 import 'package:system_tray/system_tray.dart';
 import 'package:window_manager/window_manager.dart';
 
@@ -39,24 +40,15 @@ class TrayManager {
     if (isPreventClose) {
       showDialog(
         context: context,
-        builder: (context) => AlertDialog(
-          title: const Text('Закрыть приложение?'),
-          actions: [
-            TextButton(
-              onPressed: () async {
-                Navigator.of(context).pop();
-                await windowManager.hide();
-              },
-              child: const Text('Свернуть в трей'),
-            ),
-            TextButton(
-              onPressed: () async {
-                Navigator.of(context).pop();
-                await windowManager.destroy();
-              },
-              child: const Text('Закрыть'),
-            ),
-          ],
+        builder: (context) => ExitDialog(
+          onExit: () async {
+            Navigator.of(context).pop();
+            await windowManager.destroy(); // Закрыть приложение
+          },
+          onMinimize: () async {
+            Navigator.of(context).pop();
+            await windowManager.hide(); // Свернуть в трей
+          },
         ),
       );
     }

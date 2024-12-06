@@ -1,5 +1,5 @@
+import 'package:Freescord/domain/services/logger/log_entry.dart';
 import 'package:flutter/material.dart';
-import 'package:gui_zapret/domain/services/logger/log_entry.dart';
 import 'package:intl/intl.dart';
 
 class LogManager {
