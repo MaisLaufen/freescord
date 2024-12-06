@@ -1,12 +1,12 @@
-import 'package:Freescord/presentation/pages/about.dart';
-import 'package:Freescord/presentation/pages/settings.dart';
+import 'package:freescord/presentation/pages/about.dart';
+import 'package:freescord/presentation/pages/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
 
 class TitleBar extends StatelessWidget {
   final GlobalKey<NavigatorState> navigatorKey;
 
-  const TitleBar({Key? key, required this.navigatorKey}) : super(key: key);
+  const TitleBar({super.key, required this.navigatorKey});
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +14,30 @@ class TitleBar extends StatelessWidget {
       child: Container(
         height: 30,
         color: Colors.black,
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            // Кнопки навигации
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Image.asset(
+                  'assets/images/freescord_logo.png',
+                  height: 22,
+                  fit: BoxFit.contain,
+                ),
+                const SizedBox(width: 8),
+                const Text(
+                  'Freescord',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
+            ),
             Row(
               children: [
                 _TitleBarButton(

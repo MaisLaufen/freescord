@@ -1,4 +1,4 @@
-name: Freescord
+name: freescord
 description: "Графический интерфейс для обхода блокировки Discord и YouTube."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -67,7 +67,7 @@ flutter:
   - assets/icons/freescord_logo_circle.ico
   - assets/images/freescord_logo_circle.svg
   - assets/images/freescord_logo_circle.png
-  - assets/images/freescord_logo.svg
+  - assets/images/freescord_logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
