@@ -1,5 +1,5 @@
-import 'package:Freescord/presentation/pages/loading_screen.dart';
-import 'package:Freescord/presentation/widgets/titlebar.dart';
+import 'package:freescord/presentation/pages/loading_screen.dart';
+import 'package:freescord/presentation/widgets/titlebar.dart';
 import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
 import 'domain/services/global_navigator.dart';

@@ -1,6 +1,6 @@
 import 'dart:io';
-import 'package:Freescord/domain/zapret/cfg.dart';
 import 'package:flutter/material.dart';
+import 'package:freescord/domain/zapret/cfg.dart';
 
 class ProcessManager {
   Process? _process;

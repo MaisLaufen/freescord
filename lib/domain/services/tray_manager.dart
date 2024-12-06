@@ -1,5 +1,5 @@
-import 'package:Freescord/domain/services/process_manager.dart';
-import 'package:Freescord/presentation/dialogs/exit_dialog.dart';
+import 'package:freescord/domain/services/process_manager.dart';
+import 'package:freescord/presentation/dialogs/exit_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:system_tray/system_tray.dart';
 import 'package:window_manager/window_manager.dart';
@@ -43,6 +43,7 @@ class TrayManager {
         builder: (context) => ExitDialog(
           onExit: () async {
             Navigator.of(context).pop();
+            ProcessManager().killProcess();
             await windowManager.destroy(); // Закрыть приложение
           },
           onMinimize: () async {
