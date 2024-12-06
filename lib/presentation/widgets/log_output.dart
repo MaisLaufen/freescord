@@ -1,5 +1,5 @@
 // lib/presentation/widgets/log_console.dart
-import 'package:Freescord/domain/services/logger/log_entry.dart';
+import 'package:freescord/domain/services/logger/log_entry.dart';
 import 'package:flutter/material.dart';
 
 class LogConsole extends StatelessWidget {

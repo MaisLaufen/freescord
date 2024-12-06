@@ -1,7 +1,7 @@
-import 'package:Freescord/domain/services/logger/log_entry.dart';
-import 'package:Freescord/domain/services/logger/log_manager.dart';
-import 'package:Freescord/domain/services/process_manager.dart';
-import 'package:Freescord/presentation/widgets/log_output.dart';
+import 'package:freescord/domain/services/logger/log_entry.dart';
+import 'package:freescord/domain/services/logger/log_manager.dart';
+import 'package:freescord/domain/services/process_manager.dart';
+import 'package:freescord/presentation/widgets/log_output.dart';
 import 'package:flutter/material.dart';
 
 // Цвета:
@@ -56,11 +56,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Главная страница',
-            style: TextStyle(color: Colors.white)),
-        backgroundColor: Colors.black,
-      ),
       backgroundColor: Colors.black,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -70,7 +65,7 @@ class _HomePageState extends State<HomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text('Запуск процесса',
+                const Text('Запуск обхода Discord',
                     style: TextStyle(color: Colors.white)),
                 ValueListenableBuilder<bool>(
                   valueListenable: processManager.isRunningNotifier,
