@@ -1,5 +1,5 @@
-name: gui_zapret
-description: "A new Flutter project."
+name: Freescord
+description: "Графический интерфейс для обхода блокировки Discord и YouTube."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -66,6 +66,7 @@ flutter:
   assets:
   - assets/icons/freescord_logo_circle.ico
   - assets/images/freescord_logo_circle.svg
+  - assets/images/freescord_logo_circle.png
   - assets/images/freescord_logo.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see

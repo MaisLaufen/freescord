@@ -1,6 +1,6 @@
 // lib/presentation/widgets/log_console.dart
+import 'package:Freescord/domain/services/logger/log_entry.dart';
 import 'package:flutter/material.dart';
-import 'package:gui_zapret/domain/services/logger/log_entry.dart';
 
 class LogConsole extends StatelessWidget {
   final List<LogEntry> logs;
@@ -13,7 +13,7 @@ class LogConsole extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          '[ Логи: ]',
+          'Информация:',
           style: TextStyle(
               fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
         ),
@@ -24,7 +24,7 @@ class LogConsole extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.black,
             borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: Colors.white),
+            border: Border.all(color: Color(0xff333333)),
           ),
           padding: const EdgeInsets.all(8),
           child: ListView.builder(
